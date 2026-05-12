@@ -248,11 +248,11 @@ image jn_wd_milkshake = Image(JN_WD_MILKSHAKE_IMAGE_PATH)
 transform jn_wd_idle_drink_anim:
     # Anchored to the lower desk plane instead of free-floating screen coordinates.
     # No bobbing/movement. Adjust yoffset only if your desk background differs.
-    zoom 0.20
+    zoom 1.0
     anchor (0.5, 1.0)
     xalign 0.50
     yalign 1.0
-    yoffset -120
+    yoffset 1.0
     alpha 1.0
 
 
@@ -371,14 +371,16 @@ label idle_weather_hot_chocolate:
     hide black with Dissolve(0.5)
 
     if persistent.jn_weather_drinks_last_weather == "snow":
-        n 1ullbo "...Snow, huh?{w=0.75}{nw}"
-        extend 2fcsbg " Yeah, okay.{w=0.5} This calls for something warm."
+        n 4ullaj "...It's snowing now, huh?{w=0.75}{nw}"
+        n 2fcscs "Mhmmmm.{w=0.5} "
+        extend n 4fspbg "This calls for something warm."
     else:
-        n 1ullbo "...Rain again?{w=0.75}{nw}"
-        extend 2fcssm " Hmph.{w=0.5} Then I'm getting something warm."
+        n 1ullbo "...Oh, is it raining?{w=0.75}{nw}"
+        extend 2fcssm " Hm.{w=0.5} Then I'm getting something warm."
 
     n 2fsqsm "And not just plain hot chocolate, either."
-    n 2fchbg "Whipped cream and marshmallows.{w=0.5} Obviously."
+    n 2fchbg "With whipped cream and marshmallows.{w=0.5}"
+    extend " Obviously."
     n 1uchsm "I'll be right back!"
 
     show black zorder JN_BLACK_ZORDER with Dissolve(0.5)
@@ -390,15 +392,18 @@ label idle_weather_hot_chocolate:
     hide black with Dissolve(0.5)
 
     n 1fchbg "There we go!"
-    n 2fsqsm "Chocolate, whipped cream, marshmallows...{w=0.5} yep."
-    n 2fcssm "Bad weather is way easier to deal with like this."
+    n 2fsqsm "Chocolate, whipped cream, marshmallows...{w=0.5}"
+    extend " yep."
+    n 4fwlbg "Bad weather is way easier to deal with like this."
 
     show natsuki 1fchsmeme
     $ jnPause(JN_WD_HOT_CHOCOLATE_ENJOY_TIME)
+    $ jnClickToContinue(silent=False)
 
-    n 1uchsm "Mmm... okay, that was pretty good."
+    n 1uchsm "Mmm..."
+    extned n 2ucsts " that was soo good."
     n 2fcsss "I guess rain and snow aren't completely terrible when I have something like this."
-    n 2fsqsm "I'm putting it away before I start wanting another one."
+    n 4nsrbg "I'm gonna put this away before I start wanting another one."
 
     show black zorder JN_BLACK_ZORDER with Dissolve(0.5)
     $ jnPause(0.5)
@@ -446,6 +451,7 @@ label idle_weather_milkshake:
 
     show natsuki 1fchsmeme
     $ jnPause(JN_WD_MILKSHAKE_ENJOY_TIME)
+    $ jnClickToContinue(silent=False)
 
     n 1uchsm "Mmm... that was really good."
     n 2fcsss "Cold, sweet, and not too heavy."
