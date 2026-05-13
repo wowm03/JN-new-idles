@@ -401,7 +401,7 @@ label idle_weather_hot_chocolate:
     $ jnClickToContinue(silent=False)
 
     n 1uchsm "Mmm..."
-    extned n 2ucsts " that was soo good."
+    extend n 2ucsts " that was soo good."
     n 2fcsss "I guess rain and snow aren't completely terrible when I have something like this."
     n 4nsrbg "I'm gonna put this away before I start wanting another one."
 
